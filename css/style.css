@@ -44,8 +44,8 @@ body{
 
   }
   #container2 {
-    /* transform: rotateZ(40deg); */
-    transform: perspective(700px) rotateX(40deg);
+    /* transform: ; */
+    transform: perspective(700px) rotateX(40deg) rotateZ(40deg);
     
     
     justify-content: center;
