@@ -1,0 +1,147 @@
+
+body{
+    background-color: brown;
+
+ 
+   
+}
+#block {
+    /* transform:rotateZ(40deg) ; */
+    transform: perspective(700px) rotateX(40deg);
+    
+    
+    justify-content: center;
+    flex-wrap: wrap;
+    display:flex;
+    width: 700px;
+    height: 700px;
+
+    position: absolute;
+    margin: auto;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+
+  }
+#container {
+    /* transform:rotateZ(40deg) ; */
+    transform: perspective(700px) rotateX(40deg);
+    
+    
+    justify-content: center;
+    flex-wrap: wrap;
+    display:flex;
+    width: 700px;
+    height: 700px;
+
+    position: absolute;
+    margin: auto;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+
+  }
+  #container2 {
+    /* transform: rotateZ(40deg); */
+    transform: perspective(700px) rotateX(40deg);
+    
+    
+    justify-content: center;
+    flex-wrap: wrap;
+    display:flex;
+    width: 700px;
+    height: 700px;
+
+    position: absolute;
+    margin: auto;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+
+  }
+  .box {
+    box-shadow:
+    0 2.8px 2.2px rgba(0, 0, 0, 0.034),
+    0 6.7px 5.3px rgba(0, 0, 0, 0.048),
+    0 12.5px 10px rgba(0, 0, 0, 0.06),
+    0 22.3px 17.9px rgba(0, 0, 0, 0.072),
+    0 41.8px 33.4px rgba(0, 0, 0, 0.086),
+    0 100px 80px rgba(0, 0, 0, 0.12)
+  ;
+  
+    
+    
+    min-height: 200px;
+    width: 50vw;
+    margin: 100px auto;
+    background: white;
+    border-radius: 5px;
+  }
+
+.square {
+
+    display:wrap;
+    background: rgb(133, 133, 64);
+   
+    width: 7px;
+    border: 0px solid black;
+    
+}
+.squareWay {
+
+    display:wrap;
+    background: rgb(133, 133, 64);
+   
+    width: 7px;
+    border: 0px solid black;
+    
+}
+.hover {
+    background: blue
+}
+.way {
+    background: yellow
+}
+.hoverStar {
+    background: greenyellow
+}
+.hoverEnd {
+    background: red
+}
+.block{
+     pointer-events: none;
+}
+
+.color-change-2x {
+	animation: color-change-2x 7s linear infinite alternate both;
+}
+
+@keyframes color-change-2x {
+    0% {
+      background: #19dcea;
+    }
+    100% {
+      background: #b22cff;
+    }
+  }
+
+
+  /* .flip-scale-up-hor {
+	animation: flip-scale-up-hor 0.5s linear both;
+} */
+
+/* @keyframes flip-scale-up-hor {
+    0% {
+      transform: scale(1) rotateX(0);
+    }
+    50% {
+      transform: scale(2.5) rotateX(-90deg);
+    }
+    100% {
+      transform: scale(1) rotateX(-180deg);
+    }
+  }
+   */
