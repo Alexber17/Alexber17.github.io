@@ -1,9 +1,6 @@
 
 body{
-    background-color: brown;
-
- 
-   
+    background-color: brown;  
 }
 #block {
     /* transform:rotateZ(40deg) ; */
@@ -43,9 +40,9 @@ body{
     left: 0;
 
   }
-  #container2 {
-    /* transform: ; */
-    transform: perspective(700px) rotateX(40deg) rotateZ(40deg);
+  #container1 {
+    /* transform:rotateZ(40deg) ; */
+    transform: perspective(700px) rotateX(40deg);
     
     
     justify-content: center;
@@ -61,6 +58,70 @@ body{
     bottom: 0;
     left: 0;
 
+  }
+  #container2 {
+    /* transform: rotateZ(40deg) ; */
+    transform: perspective(700px) rotateX(40deg)rotateY(40deg) rotateZ(250deg) ;
+    background: red;
+    justify-content: center;
+    flex-wrap: wrap;
+    display:flex;
+    width: 700px;
+    height: 700px;
+    position: absolute;
+    margin: auto;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+  }
+  #container3 {
+    /* transform: rotateZ(40deg) ; */
+    transform: perspective(700px) rotateX(40deg) rotateZ(45deg) ;
+    background: red;
+    justify-content: center;
+    flex-wrap: wrap;
+    display:flex;
+    width: 700px;
+    height: 700px;
+    position: absolute;
+    margin: auto;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+  }
+  #container4 {
+    /* transform: rotateZ(40deg) ; */
+    transform: perspective(700px) rotateX(50deg) rotateZ(40deg) ;
+    background: red;
+    justify-content: center;
+    flex-wrap: wrap;
+    display:flex;
+    width: 700px;
+    height: 700px;
+    position: absolute;
+    margin: auto;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+  }
+  #container5 {
+    /* transform: rotateZ(40deg) ; */
+    transform: perspective(700px) rotateX(40deg)rotateX(30deg) ;
+    background: red;
+    justify-content: center;
+    flex-wrap: wrap;
+    display:flex;
+    width: 700px;
+    height: 700px;
+    position: absolute;
+    margin: auto;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
   }
   .box {
     box-shadow:

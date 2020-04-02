@@ -1063,6 +1063,7 @@ $(()=>{
             ,302
             ,301
         ,300]
+    let currentLvl= 1;
 
     const changeColor = (event) => {
          $(event.currentTarget).addClass('hover');
@@ -1131,13 +1132,34 @@ $(()=>{
     const EndMaze =()=>{
          console.log('Maze Ended')
         if($(`#1`).hasClass('lvnex')){
-            makeNextMaze(2);
+            currentLvl= currentLvl+1; 
+            mazelvl(currentLvl); 
+
+        }
+    }
+    const mazelvl=(nLvl)=>{
+        
+        console.log(nLvl)
+        if(nLvl===2){
+            makeNextMaze(nLvl);
+            makeWay(levelTwo);
+        }else if(nLvl===3){
+            makeNextMaze(nLvl);
+            makeWay(levelTheer);
+        }else if(nLvl===4){
+            makeNextMaze(nLvl);
+            makeWay(levelFour);
+        }else if(nLvl===5){
+            console.log('lv5')
+            makeNextMaze(nLvl);
+            makeWay(levelFour);
         }
         
-
     }
+
+
     makeMaze();
-    makeWay(levelFour);
+    makeWay(levelOne);
     
 
 
