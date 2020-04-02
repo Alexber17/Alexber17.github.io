@@ -812,6 +812,7 @@ $(()=>{
             ,439
             ,440
             ,439
+            ,428
             ,440
             ,540
             ,539
@@ -1080,6 +1081,7 @@ $(()=>{
         for (let i = 0; i < 1000; i++) {
             const $div = $('<div>').addClass('square').attr('id',`${i}`);
             $div.on('mouseover', changeColor);
+            
             $('#container').append($div);
             
         }
@@ -1089,25 +1091,46 @@ $(()=>{
         const $gameBoard = $('#gameBoard')
         $gameBoard.html('');
         const $nextContainer=$('<div>').attr('id',`container${lvlN}`);
-        $gameBoard.append($nextContainer);
+        $gameBoard.append($nextContainer).fadeIn(150);
         for (let i = 0; i < 1000; i++) {
-            const $div = $('<div>').addClass('square').attr('id',`${i}`);
+            const $div = $('<div>').addClass('square').attr('id',`${i}`).fadeIn(150);
             $div.on('mouseover', changeColor);
             $nextContainer.append($div);
+            
             
         }
         
     }
-    const  GameOver=()=>{
+    const  GameOver=(event)=>{
         console.log('Game over');
-       // alert('Please star over')
+        // alert('Please star over')
+        $("#gameBoard").fadeOut(150);
+       Swal.fire({
+        title: 'To finish this game, the mouse cursor should stay on the path.',
+        width: 600,
+        padding: '3em',
+        background: '#fff',
         
+      }).then(()=>{
+        
+        
+        if(currentLvl==1){
+            $("#gameBoard").delay(1200).fadeIn(150);
+            makeWay(levelOne);
+        }else{
+            $("#gameBoard").delay(1200).fadeIn(150);
+            mazelvl(currentLvl);
+        }
+        
+      })
+
+      
     }
     
     //Make the way 
     const makeWay=(level)=>{
         for (let i = 0; i < level.length; i++) {
-            $(`#${level[i]}`).removeClass('square').addClass('squareWay');
+            $(`#${level[i]}`).removeClass('square').addClass('squareWay').addClass('.swing-top-fwd');
             $(`#${level[i]}`).addClass('way');   
         }
         starAndEnd(level)
@@ -1133,6 +1156,7 @@ $(()=>{
          console.log('Maze Ended')
         if($(`#1`).hasClass('lvnex')){
             currentLvl= currentLvl+1; 
+            $("#gameBoard").fadeOut(150);
             mazelvl(currentLvl); 
 
         }
@@ -1141,6 +1165,7 @@ $(()=>{
         
         console.log(nLvl)
         if(nLvl===2){
+            
             makeNextMaze(nLvl);
             makeWay(levelTwo);
         }else if(nLvl===3){
@@ -1151,6 +1176,7 @@ $(()=>{
             makeWay(levelFour);
         }else if(nLvl===5){
             console.log('lv5')
+            $('#gameBoard').addClass('rotate-center')
             makeNextMaze(nLvl);
             makeWay(levelFour);
         }
@@ -1159,6 +1185,7 @@ $(()=>{
 
 
     makeMaze();
+    
     makeWay(levelOne);
     
 
