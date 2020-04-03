@@ -1064,7 +1064,9 @@ $(()=>{
             ,302
             ,301
         ,300]
-    let currentLvl= 1;
+    let currentLvl= 5;
+
+
 
     const changeColor = (event) => {
          $(event.currentTarget).addClass('hover');
@@ -1112,8 +1114,6 @@ $(()=>{
         background: '#fff',
         
       }).then(()=>{
-        
-        
         if(currentLvl==1){
             $("#gameBoard").delay(1200).fadeIn(150);
             makeWay(levelOne);
@@ -1184,9 +1184,31 @@ $(()=>{
     }
 
 
-    makeMaze();
+    const Welcome =()=>{
+        $('#gameBoard').children().hide();
+        $('#instruction').hide();
+         
+         const $h1 = $('<h1>').text('The Maze').appendTo('#gameBoard').attr('id','gameName');
+         const $bt = $('<button>').appendTo('#gameBoard').text('Star').attr('id','gameStar');
+         const $Footer = $('<p>').appendTo('#gameBoard').text('By Alexander Bermudez').attr('id','myName');
+
+         $bt.on('click',()=>{
+            $('#gameBoard').children().show().fadeIn(150);
+            $('#instruction').show().fadeIn(150);
+            $h1.hide().fadeOut(150)
+            $bt.hide().fadeOut(150)
+            $Footer.hide().fadeOut(150)
+            makeMaze();
+            makeWay(levelOne);
     
-    makeWay(levelOne);
+         })
+         
+    }
+
+    Welcome();
+    // makeMaze();
+    
+    // makeWay(levelOne);
     
 
 
