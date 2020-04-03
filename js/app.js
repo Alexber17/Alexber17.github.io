@@ -1,4 +1,6 @@
 $(()=>{
+
+    //////////////////////////Array that define the Ways of the Game////////////////////////
     const levelOne=[600
         ,601
         ,602
@@ -309,6 +311,7 @@ $(()=>{
         ,698
         ,699]; 
     const levelTheer=[199
+        ,198
          ,190
          ,191
          ,192
@@ -318,7 +321,6 @@ $(()=>{
          ,196
          ,197
          ,189
-         ,198
          ,196
          ,194
          ,193
@@ -1064,11 +1066,13 @@ $(()=>{
             ,302
             ,301
         ,300]
-    let currentLvl= 5;
+//////////////////////////////////////////////////////////////////////////////////////////////
 
+    let currentLvl= 1; /// Define the lvl of star in the Game 
+    let lives = 10;
 
-
-    const changeColor = (event) => {
+//////////////////////////Its the Ho
+    const mouseHover = (event) => {
          $(event.currentTarget).addClass('hover');
         let n= $(event.currentTarget).attr('id');
          ///This Arr is  for make Levels
@@ -1078,11 +1082,12 @@ $(()=>{
             GameOver()
         }    
     }
+
     ///Make the Maze
     const makeMaze=()=>{
         for (let i = 0; i < 1000; i++) {
             const $div = $('<div>').addClass('square').attr('id',`${i}`);
-            $div.on('mouseover', changeColor);
+            $div.on('mouseover', mouseHover);
             
             $('#container').append($div);
             
@@ -1096,19 +1101,37 @@ $(()=>{
         $gameBoard.append($nextContainer).fadeIn(150);
         for (let i = 0; i < 1000; i++) {
             const $div = $('<div>').addClass('square').attr('id',`${i}`).fadeIn(150);
-            $div.on('mouseover', changeColor);
+            $div.on('mouseover', mouseHover);
             $nextContainer.append($div);
             
             
         }
         
     }
-    const  GameOver=(event)=>{
+    const  GameOver=()=>{
         console.log('Game over');
-        // alert('Please star over')
+       
+        console.log(lives);
+        if(lives<=0){
+            // alert('Game Over')
+            Swal.fire({
+                title: 'Game Over.',
+                width: 700,
+                padding: '3em',
+                background: '#fff',
+                
+                
+              }).then(()=>{
+
+                location.reload();
+
+                
+              })
+
+        }else{
         $("#gameBoard").fadeOut(150);
        Swal.fire({
-        title: 'To finish this game, the mouse cursor should stay on the path.',
+        title: `To finish this game, the mouse cursor should stay on the path.  lives: ${lives} `,
         width: 600,
         padding: '3em',
         background: '#fff',
@@ -1123,8 +1146,9 @@ $(()=>{
         }
         
       })
+    }
 
-      
+      lives = lives-1;
     }
     
     //Make the way 
@@ -1139,13 +1163,18 @@ $(()=>{
     const starAndEnd=(arr)=>{
       
         let last = arr[arr.length-1];
+        let last2 = arr[arr.length-2];
+
+        
        
         // console.log(arrEnd);
         $(`#${arr}`).removeClass('hover').addClass('hoverStar').on('mouseover',StarMaze);
+        $(`#${arr[1]}`).removeClass('hover').addClass('hoverStar').on('mouseover',StarMaze);
         
-
         $(`#${last}`).removeClass('hover').addClass('hoverEnd');
         $(`#${last}`).on('mouseover',EndMaze);
+        $(`#${last2}`).removeClass('hover').addClass('hoverEnd');
+        $(`#${last2}`).on('mouseover',EndMaze);
 
     }
     const StarMaze =()=>{
@@ -1189,7 +1218,7 @@ $(()=>{
         $('#instruction').hide();
          
          const $h1 = $('<h1>').text('The Maze').appendTo('#gameBoard').attr('id','gameName');
-         const $bt = $('<button>').appendTo('#gameBoard').text('Star').attr('id','gameStar');
+         const $bt = $('<button>').appendTo('#gameBoard').text('Star').attr('id','gameStar').addClass('button');
          const $Footer = $('<p>').appendTo('#gameBoard').text('By Alexander Bermudez').attr('id','myName');
 
          $bt.on('click',()=>{
@@ -1205,11 +1234,10 @@ $(()=>{
          
     }
 
+    
+
     Welcome();
-    // makeMaze();
-    
-    // makeWay(levelOne);
-    
+
 
 
 })
