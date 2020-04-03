@@ -1,6 +1,6 @@
 $(()=>{
 
-    //////////////////////////Array that define the Ways of the Game////////////////////////
+////////////////////////////////////////Array that define the Ways of the Game/////////////////////////
     const levelOne=[600
         ,601
         ,602
@@ -1066,10 +1066,10 @@ $(()=>{
             ,302
             ,301
         ,300]
-//////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////////
 
     let currentLvl= 1; /// Define the lvl of star in the Game 
-    let lives = 10;
+    let lives = 10; // Number of lives
 
 //////////////////////////Its the Ho
     const mouseHover = (event) => {
@@ -1083,22 +1083,22 @@ $(()=>{
         }    
     }
 
-    ///Make the Maze
+ //////////////Make the Maze
     const makeMaze=()=>{
         for (let i = 0; i < 1000; i++) {
             const $div = $('<div>').addClass('square').attr('id',`${i}`);
             $div.on('mouseover', mouseHover);
-            
             $('#container').append($div);
             
         }
 
     }
+ //////////////Change the position of the board in each level
     const makeNextMaze=(lvlN)=>{
         const $gameBoard = $('#gameBoard')
         $gameBoard.html('');
         const $nextContainer=$('<div>').attr('id',`container${lvlN}`);
-        $gameBoard.append($nextContainer).fadeIn(150);
+        $gameBoard.append($nextContainer).fadeIn(200);
         for (let i = 0; i < 1000; i++) {
             const $div = $('<div>').addClass('square').attr('id',`${i}`).fadeIn(150);
             $div.on('mouseover', mouseHover);
@@ -1108,40 +1108,35 @@ $(()=>{
         }
         
     }
+ //////////////Show the alert and  reload the game when the user lose 
     const  GameOver=()=>{
-        console.log('Game over');
-       
-        console.log(lives);
         if(lives<=0){
             // alert('Game Over')
             Swal.fire({
                 title: 'Game Over.',
                 width: 700,
                 padding: '3em',
-                background: '#fff',
-                
-                
+                background: '#fff',  
+                confirmButtonText: 'Try again'
               }).then(()=>{
-
                 location.reload();
-
-                
               })
 
         }else{
-        $("#gameBoard").fadeOut(150);
+ //////// Alert that show how to finish the game and how many lives you have left
+        $("#gameBoard").fadeOut(200);
        Swal.fire({
-        title: `To finish this game, the mouse cursor should stay on the path.  lives: ${lives} `,
+        title: `To finish this game, the mouse cursor should stay on the path.      lives: ${lives} `,
         width: 600,
         padding: '3em',
         background: '#fff',
         
       }).then(()=>{
         if(currentLvl==1){
-            $("#gameBoard").delay(1200).fadeIn(150);
+            $("#gameBoard").delay(1200).fadeIn(200);
             makeWay(levelOne);
         }else{
-            $("#gameBoard").delay(1200).fadeIn(150);
+            $("#gameBoard").delay(1200).fadeIn(200);
             mazelvl(currentLvl);
         }
         
@@ -1150,8 +1145,7 @@ $(()=>{
 
       lives = lives-1;
     }
-    
-    //Make the way 
+///////////Make the path
     const makeWay=(level)=>{
         for (let i = 0; i < level.length; i++) {
             $(`#${level[i]}`).removeClass('square').addClass('squareWay').addClass('.swing-top-fwd');
@@ -1159,15 +1153,11 @@ $(()=>{
         }
         starAndEnd(level)
     }
-    //////set the star and end
+////////////Set the star and end in the path
     const starAndEnd=(arr)=>{
-      
         let last = arr[arr.length-1];
         let last2 = arr[arr.length-2];
 
-        
-       
-        // console.log(arrEnd);
         $(`#${arr}`).removeClass('hover').addClass('hoverStar').on('mouseover',StarMaze);
         $(`#${arr[1]}`).removeClass('hover').addClass('hoverStar').on('mouseover',StarMaze);
         
@@ -1177,24 +1167,25 @@ $(()=>{
         $(`#${last2}`).on('mouseover',EndMaze);
 
     }
+///////StarMaze take 
     const StarMaze =()=>{
-       console.log('Maze started')
-       $(`#1`).addClass('lvnex');
+       $(`#1`).addClass('lvnex');//Its 
     }
     const EndMaze =()=>{
          console.log('Maze Ended')
         if($(`#1`).hasClass('lvnex')){
             currentLvl= currentLvl+1; 
-            $("#gameBoard").fadeOut(150);
+            $("#gameBoard").fadeOut(200);
             mazelvl(currentLvl); 
 
         }
     }
+
+/////Chose the next level
     const mazelvl=(nLvl)=>{
         
         console.log(nLvl)
         if(nLvl===2){
-            
             makeNextMaze(nLvl);
             makeWay(levelTwo);
         }else if(nLvl===3){
@@ -1208,12 +1199,26 @@ $(()=>{
             $('#gameBoard').addClass('rotate-center')
             makeNextMaze(nLvl);
             makeWay(levelFour);
+        }else if(nLvl===6){
+            makeNextMaze(nLvl);
+            gameWon();
         }
         
     }
+////////This Functions show the 'You Win' screem and set the button to restar 
+    const gameWon=()=>{
+         $('#instruction').hide();
+         const $h1 = $('<h1>').text('You Win').appendTo('#gameBoard').attr('id','gameName');
+         const $bt = $('<button>').appendTo('#gameBoard').text('Restart').attr('id','gameStar').addClass('button');
+         $bt.on('click',()=>{
+             $h1.fadeOut(200).hide()
+             $bt.fadeOut(200).hide()
+            location.reload();
+         })
+    }
 
-
-    const Welcome =()=>{
+/////Show the Main menu of the game 
+    const mainMenu =()=>{
         $('#gameBoard').children().hide();
         $('#instruction').hide();
          
@@ -1222,21 +1227,20 @@ $(()=>{
          const $Footer = $('<p>').appendTo('#gameBoard').text('By Alexander Bermudez').attr('id','myName');
 
          $bt.on('click',()=>{
-            $('#gameBoard').children().show().fadeIn(150);
-            $('#instruction').show().fadeIn(150);
-            $h1.hide().fadeOut(150)
-            $bt.hide().fadeOut(150)
-            $Footer.hide().fadeOut(150)
+            $('#gameBoard').children().show().fadeIn(200);
+            $('#instruction').show().fadeIn(200);
+            $h1.hide().fadeOut(200)
+            $bt.hide().fadeOut(200)
+            $Footer.hide().fadeOut(200)
             makeMaze();
             makeWay(levelOne);
     
          })
-         
     }
 
     
 
-    Welcome();
+    mainMenu();
 
 
 
