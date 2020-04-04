@@ -1,5 +1,4 @@
-# Alexber17.github.io
-# The Maze
+## The Maze
 ## Concept: 
 This is a maze game where you follow a path with your mouse while trying not to move the mouse oustide of the path. In order to complete each level you will start on the green line of the maze and move the mouse through the path until you reach the red line. You have 10 lives for the all 4 levels of the game, so try to be really careful. 
 ## Technologies Used:
@@ -24,3 +23,4 @@ First level
 ## App Demo 
 Please take a look at my project hosted on Gifhub
 https://alexber17.github.io/
+# Alexber17.github.io
