@@ -1224,7 +1224,7 @@ $(()=>{
          
          const $h1 = $('<h1>').text('The Maze').appendTo('#gameBoard').attr('id','gameName');
          const $bt = $('<button>').appendTo('#gameBoard').text('Star').attr('id','gameStar').addClass('button');
-         const $Footer = $('<p>').appendTo('#gameBoard').text('By Alexander Bermudez').attr('id','myName');
+         const $Footer = $('<a>').appendTo('#gameBoard').text('By Alexander Bermudez').attr('id','myName').attr('href','https://www.linkedin.com/in/alexander-bermudez/');
 
          $bt.on('click',()=>{
             $('#gameBoard').children().show().fadeIn(200);

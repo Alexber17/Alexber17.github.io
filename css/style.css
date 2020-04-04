@@ -70,6 +70,9 @@ body{
     margin-left: -100px;
 
   }
+  a {
+    color: black;
+  }
 
 #container {
     /* transform:rotateZ(40deg) ; */
