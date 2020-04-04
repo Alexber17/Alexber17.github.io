@@ -1,7 +1,7 @@
 # Alexber17.github.io
 # The Maze
 ## Concept: 
-This Game is a Maze that you need to follow a path with your mouse with out touche the rest of the maze, in order to comple the level you need to star in green line of the maze and go trow until the red line, you have 10 live for the all the level of the game so try to be really careful 
+This is a maze game where you follow a path with your mouse while trying not to move the mouse oustide of the path. In order to complete each level you will start on the green line of the maze and move the mouse through the path until you reach the red line. You have 10 lives for the all 4 levels of the game, so try to be really careful. 
 ## Technologies Used:
     - HTML
     - CSS
@@ -9,11 +9,11 @@ This Game is a Maze that you need to follow a path with your mouse with out touc
     - CSS 
     - Sweetalert2
 ## Approach: 
-The main element in the game is the maze this element was acomplish creating a matrix of div with a propieti of mouse over 
+The main element in the game is the maze, this element was acomplished creating a matrix of div with a property of mouse over, I defined the path of the levels with arrays so it will be easy to add more levels in the future.
 ## Challenges: 
     -Make the metrix of divs with the mouse over function.
-    -Make each level in base a array that define the function on a array.
-    -Keep track when the mouse go in the path in the correct way 
+    -Make each level in base a array that defines the function on a array.
+    -Keep track of when the mouse goes in the path in the correct way 
 ## Additional information:
 Early state in the develoment
 ![](img/1.png)
