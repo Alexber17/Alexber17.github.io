@@ -14,8 +14,10 @@ The main element in the game is the maze this element was acomplish creating a m
     -Make the metrix of divs with the mouse over function.
     -Make each level in base a array that define the function on a array.
     -Keep track when the mouse go in the path in the correct way 
-## Additional information: 
+## Additional information:
+Early state in the develoment
 ![](img/1.png)
+
 ![](img/2.png)
 ![](img/3.png)
 ## App Demo 
