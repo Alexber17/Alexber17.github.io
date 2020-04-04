@@ -15,6 +15,9 @@ The main element in the game is the maze this element was acomplish creating a m
     -Make each level in base a array that define the function on a array.
     -Keep track when the mouse go in the path in the correct way 
 ## Additional information: 
+![](img/1.png)
+![](img/2.png)
+![](img/3.png)
 ## App Demo 
 Please take a look at my project hosted on Gifhub
 https://alexber17.github.io/
