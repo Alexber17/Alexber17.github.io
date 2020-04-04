@@ -17,8 +17,9 @@ The main element in the game is the maze this element was acomplish creating a m
 ## Additional information:
 Early state in the develoment
 ![](img/1.png)
-
+Main Menu
 ![](img/2.png)
+First level
 ![](img/3.png)
 ## App Demo 
 Please take a look at my project hosted on Gifhub
